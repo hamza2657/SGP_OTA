@@ -1,0 +1,24 @@
+name: Update OTA Status
+
+on:
+  repository_dispatch:
+    types: [ota_status]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Save OTA status
+        run: |
+          echo '${{ github.event.client_payload.data }}' > version.json
+
+      - name: Commit & Push
+        run: |
+          git config user.name "ota-bot"
+          git config user.email "ota-bot@users.noreply.github.com"
+          git add version.json
+          git commit -m "Update OTA status"
+          git push
