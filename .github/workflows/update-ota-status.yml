@@ -1,5 +1,8 @@
 name: Update OTA Status
 
+permissions:
+  contents: write   # allow this workflow to push changes
+
 on:
   repository_dispatch:
     types: [ota_status]
