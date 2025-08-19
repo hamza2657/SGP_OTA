@@ -16,7 +16,21 @@ jobs:
 
       - name: Save OTA status
         run: |
-          echo '${{ toJSON(github.event.client_payload.data) }}' > version.json
+          # Read the existing version.json (before OTA report update)
+          existing=$(cat version.json)
+      
+          # Extract version and url using jq
+          version=$(echo "$existing" | jq -r '.version')
+          url=$(echo "$existing" | jq -r '.url')
+      
+          # Build a new JSON with version, url, and OTA report
+          jq -n \
+            --arg v "$version" \
+            --arg u "$url" \
+            --argjson report '${{ toJSON(github.event.client_payload.data) }}' \
+            '{version:$v, url:$u, ota_report:$report}' > version.json
+
+
 
 
       - name: Commit & Push
