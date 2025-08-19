@@ -1,6 +1,10 @@
 {
-  "device": "ESP32-SGP",
-  "ota_status": "success",
-  "timestamp": "Tue, 15 Aug 2025 15:42:00 GMT",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "url": "null",
+  "ota_report": {
+    "device": "ESP32-SGP",
+    "ota_status": "success",
+    "timestamp": "Tue, 15 Aug 2025 15:42:00 GMT",
+    "version": "1.0.0"
+  }
 }
