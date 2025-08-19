@@ -16,7 +16,8 @@ jobs:
 
       - name: Save OTA status
         run: |
-          echo '${{ github.event.client_payload.data }}' > version.json
+          echo '${{ toJSON(github.event.client_payload.data) }}' > version.json
+
 
       - name: Commit & Push
         run: |
