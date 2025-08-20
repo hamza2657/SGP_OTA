@@ -1,10 +1,4 @@
 {
-  "version": "1.0.5",
+  "version": "1.0.6",
   "url": "https://raw.githubusercontent.com/hamza2657/SGP_OTA/refs/heads/main/sgp_uart_final.bin",
-  "ota_report": {
-    "device": "ESP32-SGP",
-    "ota_status": "success",
-    "timestamp": "Tue, 19 Aug 2025 12:17:36 GMT",
-    "version": "1.0.0"
-  }
 }
